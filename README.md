@@ -44,12 +44,15 @@ Served by `apps/api`:
 
 | Method | Path | Description |
 |---|---|---|
-| GET | `/health` | `200 {"status":"ok","version":"v1"}` |
+| GET | `/health` | `200 {"status":"ok","version":"v2"}` |
 | GET | `/api/items` | JSON array of items |
 | POST | `/api/items` | Body `{"name":"..."}` → `201` with the created item |
+| GET | `/api/items/{id}` | `200` with the item, `404` when missing |
+| PUT | `/api/items/{id}` | Body `{"name":"..."}` → `200` with the renamed item, `404` when missing |
+| DELETE | `/api/items/{id}` | `204`, `404` when missing |
 
 The `items` table is created on start when it is missing. CORS is open for every origin.
 
 The web app lists the items on the server (`GET {API_URL}/api/items`) and its form posts to `/api/items` on the web
 app, which proxies to the API, so `API_URL` never reaches the browser. The contract constants (`/health`,
-`/api/items`, `v1`, name validation) live in `packages/shared` and are imported by both apps.
+`/api/items`, `/api/items/:itemID`, `v2`, name validation) live in `packages/shared` and are imported by both apps.

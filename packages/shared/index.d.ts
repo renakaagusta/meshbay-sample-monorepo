@@ -7,6 +7,7 @@ export type ItemRecord = {
 export const API_VERSION: string;
 export const HEALTH_ROUTE: string;
 export const ITEMS_ROUTE: string;
+export const ITEM_ROUTE: string;
 export const MAX_ITEM_NAME_LENGTH: number;
 
 export function itemNameFromPayload(payload: unknown): string;

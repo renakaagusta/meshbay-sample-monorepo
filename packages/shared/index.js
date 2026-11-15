@@ -1,6 +1,7 @@
-export const API_VERSION = "v1";
+export const API_VERSION = "v2";
 export const HEALTH_ROUTE = "/health";
 export const ITEMS_ROUTE = "/api/items";
+export const ITEM_ROUTE = "/api/items/:itemID";
 export const MAX_ITEM_NAME_LENGTH = 120;
 
 export function itemNameFromPayload(payload) {
